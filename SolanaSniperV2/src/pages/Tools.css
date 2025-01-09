@@ -1,0 +1,39 @@
+/* src/pages/Tools.css */
+.tools-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 50px;
+}
+
+.tool-card {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.tool-card ul {
+  list-style-position: inside;
+  padding-left: 0;
+  text-align: center;
+}
+
+.tool-card li {
+  text-align: center;
+}
+
+.learn-more {
+  background-color: #612f98;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.price-tag {
+  display: block;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}

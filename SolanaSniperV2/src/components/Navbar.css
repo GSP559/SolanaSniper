@@ -1,0 +1,180 @@
+
+
+
+nav {
+  line-height: 40px;
+  position: sticky; /* Sticky position */
+  top: 0; /* Stick to the top */
+  z-index: 10; /* Ensure it stays above other content */
+  
+  max-width: 660px;
+  mask-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    #ffffff 25%,
+    #ffffff 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  margin: 0 auto;
+ 
+  background: rgba(255, 255, 255, 0); /* Semi-transparent background for overlay */
+  backdrop-filter: blur(10px); /* Optional blur effect */
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 1); /* Visible shadow */
+}
+
+nav ul {
+  display: flex; /* Flexbox for alignment */
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 25%,
+    rgba(255, 255, 255, 0.2) 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+nav ul li {
+
+  width: 120px;
+  display: inline-block;
+  height: 100%;
+  text-align: center; 
+  
+  cursor: pointer;
+}
+
+nav ul li a {
+  position: relative; /* Add this */
+  padding: 1rem; /* Adjust the padding to control link size */
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  text-transform: uppercase;
+ 
+  -webkit-text-stroke: .3px #28ccfe;
+  color: rgb(255, 255, 255) !important;
+  font-size: 18px;
+  text-decoration: none  !important;
+  display: block;
+  -webkit-transition: all 0.2s ease-in;
+	-moz-transition: all 0.2s ease-in;
+	transition: all 0.2s ease-in;
+  
+ 
+  
+}
+
+nav ul li a:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  background-color: #535757;
+  -webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+  text-decoration: none;
+  text-shadow: 
+    0 0 5px #28ccfe,
+    0 0 8px #28ccfe,
+    0 0 9px #28ccfe,
+    0 0 10px #28ccfe,
+    0 0 15px #28ccfe,
+    0 0 20px #28ccfe;
+
+}
+
+nav ul li a:hover:before {
+  
+	-webkit-animation: shine-90 0.5s 0s linear;
+	-moz-animation: shine-90 0.5s 0s linear;
+	animation: shine-90 0.5s 0s linear;
+}
+nav ul li a:active{
+	box-shadow: 0 0 0 0 transparent;
+	-webkit-transition: box-shadow 0.2s ease-in;
+	-moz-transition: box-shadow 0.2s ease-in;
+	transition: box-shadow 0.2s ease-in;
+}
+
+nav ul li a:before{
+  content: '';
+	display: block;
+	width: 0px;
+	height: 86%;
+	position: absolute;
+	top: 7%;
+	left: 0%;
+	opacity: 0;
+	background: white;
+	box-shadow: 0 0 15px 3px white;
+	-webkit-transform: skewX(-20deg);
+	-moz-transform: skewX(-20deg);
+	-ms-transform: skewX(-20deg);
+	-o-transform: skewX(-20deg);
+	transform: skewX(-20deg);
+}
+
+@-webkit-keyframes shine-90 {
+	from {
+		opacity: 0;
+		left: 0%;
+	}
+	50% {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+		left: 100%;
+	}
+}
+
+@-moz-keyframes shine-90 {
+	from {
+		opacity: 0;
+		left: 0%;
+	}
+	50% {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+		left: 100%;
+	}
+}
+
+@keyframes shine-90 {
+	from {
+		opacity: 0;
+		left: 0%;
+	}
+	50% {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+		left: 100%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+  .menu-dropdown {
+    display: block;
+  }
+
+  .menu-content {
+    display: none;
+  }
+
+  nav ul {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .menu-dropdown {
+    display: none; /* Hide dropdown for larger screens */
+  }
+}

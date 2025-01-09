@@ -1,0 +1,297 @@
+.preloader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #299bc1, #2a155b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity .5s ease-in-out; /* Smooth fade-out */
+  }
+  
+  .preloader.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .no-scroll {
+    overflow: hidden;
+    height: 100vh;
+  }
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+  
+  
+  /* Preloader Animation */
+  .close-container.rotating {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    animation: preloader-animation 2s ease-in-out infinite forwards;
+  }
+  
+  .close-container.rotating:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 25%;
+    height: 25%;
+    border-radius: 50%;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 6px solid #fff;
+    transform: scale(0, 0.2);
+    animation: scale-animation 2s ease-in-out infinite forwards;
+  }
+  
+  .close-container.rotating .cross-line {
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    border-radius: 6px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    transform-origin: center;
+  }
+  
+  /* Animation Keyframes */
+  @keyframes preloader-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes scale-animation {
+    0% {
+      transform: scale(0, 0.2);
+    }
+    50% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(0, 0.2);
+    }
+  }
+  
+  .close-container.rotating .cross-line.top-left {
+    transform: rotate(90deg);
+  }
+  
+  .close-container.rotating .cross-line.top-right {
+    transform: rotate(180deg);
+  }
+  
+  .close-container.rotating .cross-line.bottom-left {
+    transform: rotate(270deg);
+  }
+  
+  .close-container.rotating .cross-line.bottom-right {
+    transform: rotate(360deg);
+  }
+  
+  .close-container.rotating .cross-line:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    border-radius: 6px;
+    background-color: #fff;
+    animation: line-animation 2s ease-in-out infinite forwards;
+  }
+  
+  @keyframes line-animation {
+    0% {
+      width: 20%;
+      transform: translate(0%, 0);
+    }
+    50% {
+      width: 21.5%;
+      transform: translate(100%, 0);
+    }
+    100% {
+      width: 20%;
+      transform: translate(0%, 0);
+    }
+  }
+/* Freeze state for preloader */
+  .close-container.freeze {
+    animation: none;
+  }
+  .close-container.freeze:after {
+    animation: none; /* Stop scaling */
+  }
+  /* Wipe Animation for Preloader */
+  
+  
+ 
+  
+/* Wipe Animation */
+.animation-wipe {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    overflow: hidden;
+   
+  }
+  
+  .animation-wipe .box-1,
+  .animation-wipe .box-2 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .animation-wipe .box-1:before,
+  .animation-wipe .box-2:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background:linear-gradient(45deg, #2a155b, #38ccfe);
+    transition: height 0.5s 0.1s ease-out;
+  }
+  
+  .animation-wipe .box-1:after,
+  .animation-wipe .box-2:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(45deg, #38ccfe, #2a155b);
+    transition: width 0.5s 0.1s ease-out;
+  }
+  
+  .animation-wipe .box-2:before {
+    top: auto;
+    bottom: 0;
+  }
+  
+  .animation-wipe .box-2:after {
+    right: auto;
+    left: 0;
+  }
+  
+  .animation-wipe.show .box-1:before,
+  .animation-wipe.show .box-2:before {
+    height: 100%;
+    transition: height 0.5s ease-in;
+  }
+  
+  .animation-wipe.show .box-1:after,
+  .animation-wipe.show .box-2:after {
+    width: 100%;
+    transition: width 0.5s ease-in;
+  }
+  .animation-wipe.reverse .box-1:before,
+.animation-wipe.reverse .box-2:before {
+  height: 0%;
+  transition: height 0.5s ease-in;
+}
+
+.animation-wipe.reverse .box-1:after,
+.animation-wipe.reverse .box-2:after {
+  width: 0%;
+  transition: width 0.5s ease-in;
+}
+
+
+/* Home page content visibility */
+
+ 
+  
+ 
+  
+ /* Initially hide the page content */
+ @keyframes fade-in-out {
+    0% {
+      opacity: 0;
+      transform: scale(0.5); /* Start small */
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1); /* Fully visible and scaled */
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1); /* Fade out while staying scaled */
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  #site-content {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  
+  #site-content.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .logo-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #299bc1, #2a155b); /* Match preloader background */
+    opacity: 0;
+    animation: fade-in-out 2s ease-in-out forwards;
+  }
+  
+  .logo-frame img {
+    max-width: 50%; /* Adjust logo size */
+    animation: fade-in-out 2s ease-in-out forwards;
+  }

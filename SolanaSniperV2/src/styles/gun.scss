@@ -1,0 +1,106 @@
+@mixin rotate($degs){
+    -webkit-transform: -webkit-rotate($degs);
+    -webkit-transform: rotate($degs);
+       -moz-transform: rotate($degs);
+        -ms-transform: rotate($degs);
+    	 -o-transform: rotate($degs);
+    		transform: rotate($degs);
+}
+@mixin scale($X, $Y){
+    -webkit-transform: scale($X, $Y);
+       -moz-transform: scale($X, $Y);
+        -ms-transform: scale($X, $Y);
+    	 -o-transform: scale($X, $Y);
+    		transform: scale($X, $Y);
+}
+@mixin translate($Xmove, $Ymove){
+    -webkit-transform: translate($Xmove, $Ymove);
+       -moz-transform: translate($Xmove, $Ymove);
+        -ms-transform: translate($Xmove, $Ymove);
+    	 -o-transform: translate($Xmove, $Ymove);
+    		transform: translate($Xmove, $Ymove);
+}
+@mixin transitions-ease($timing){
+	-webkit-transition: all $timing cubic-bezier(.3,0,.2,1);
+	   -moz-transition: all $timing cubic-bezier(.3,0,.2,1);
+	    -ms-transition: all $timing cubic-bezier(.3,0,.2,1);
+	     -o-transition: all $timing cubic-bezier(.3,0,.2,1);
+	        transition: all $timing cubic-bezier(.3,0,.2,1);
+}
+
+body{background-color: #2a155b;}
+
+.close-container{
+	// Container styling
+	position: absolute;
+	width: 500px; height: 500px; // Define button size
+	margin: auto;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+	cursor: pointer;
+	@include transitions-ease(.4s);
+	
+	&:hover{
+		@include rotate(45deg);
+		
+	}
+	
+	// Minus bar when hover
+	&:after{
+		content: '';
+		display: block;
+		position: absolute;
+		width: 25%;
+		height: 25%;
+		border-radius: 50%;
+		margin: auto;
+		top: 0; bottom: 0;
+		left: 0; right: 0;
+		border: 6px solid #fff;
+		@include scale(0,0.2);
+		@include transitions-ease(.25s);
+	}
+
+	// "X" bars, they are 4 to control each one in different directions
+	.cross-line{
+		position: absolute;
+		width: 100%;
+		height: 6px;
+		border-radius: 6px;
+		margin: auto;
+		top: 0; bottom: 0;
+		left: 0; right: 0;
+		overflow: hidden;
+
+		&.top-left{@include rotate(45deg);}
+		&.top-right{@include rotate(135deg);}
+		&.bottom-left{@include rotate(-45deg);}
+		&.bottom-right{@include rotate(-135deg);}
+
+		&:before{
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0; left: 0;
+			width: 20%;
+			height: 100%;
+			border-radius: 6px;
+			background-color: #fff;
+			@include transitions-ease(.4s);
+		}
+	}
+	
+	&:hover{
+		&:after{
+			@include transitions-ease(.4s);
+			@include scale(1,1);
+		}
+
+		.cross-line{
+			&:before{
+				width: 18%;
+				@include translate(320%,0);
+			}
+		}
+	}
+}
